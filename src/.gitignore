@@ -1,0 +1,14 @@
+
+.idea/
+/vendor
+
+env.php
+
+code-scratch.php
+
+csv/*.csv
+csv/*/*.csv
+
+test/
+
+misc/*-log*

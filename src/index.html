@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Comments Retrieval</title>
+    <link href="assets/css/web-fonts/font-catamaran.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/app.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div class="header">
+    <h1>Comments and Reviews Retrieval Module</h1>
+</div>
+<div class="content">
+    <div class="form-content">
+        <!-- Alert Box here -->
+        <form id="form">
+            <div class="input-group">
+                <label class="input-label" for="url">Product Display URL</label>
+                <br/>
+                <textarea name="url" id="url" placeholder="Enter or paste URL here" rows="4 "></textarea>
+                <small>Youtube video, Google Play | Apple Store | Amazon product URL</small>
+            </div>
+            <div class="input-group">
+                <label class="input-label">Tick the fields you want to have in the CSV</label>
+                <br/>
+                <div class="input-box checkbox">
+                    <input type="checkbox" name="f_all" id="f_all" class="f_"
+                           onchange="CheckboxGroup.update()" />
+                    <label for="f_all">All fields</label>
+                    <div class="underline"></div>
+
+                    <!-- CheckboxGroup here -->
+                </div>
+            </div>
+            <div class="input-group">
+                <label class="input-label">Delivery Method</label>
+                <br/>
+                <div class="input-box radio">
+                    <input type="radio" name="delivery" id="delivery1" value="1"/>
+                    <label for="delivery1">Send to email address</label>
+                    <br>
+
+                    <input type="radio" name="delivery" id="delivery2" value="2" checked />
+                    <label for="delivery2">Download now</label>
+                </div>
+                <small>Email address will be used if retrieval takes too long</small>
+            </div>
+            <div class="input-group">
+                <div class="input-box input">
+                    <div class="input-inline">
+                        <label class="input-label" for="email">Email</label>
+                        <br/>
+                        <input type="email" name="email" id="email" placeholder="Your email address" />
+                        <br/>
+                        <small>Email address is kept private</small>
+                    </div>
+                    <div class="input-inline">
+                        <label class="input-label" for="name">Name</label>
+                        <br/>
+                        <input type="text" name="name" id="name" placeholder="Your name" />
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+            <div style="margin: 25px 0 10px;">
+                <div class="btn-grid">
+                    <button id="btn" type="button" onclick="submitForm()">
+                        <span id="btxStart">Start Retrieval</span>
+                        <span id="btxWork" style="display: none;">
+                            Retrieving... <i class="fa fa-spinner spin"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="progress-grid">
+                    <span id="pgCtn" class="progress-container">
+                        <span id="pgBar" class="progress-bar">0%</span>
+                    </span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </form>
+    </div>
+    <!-- How it works -->
+    <div style="width:55%; padding:0 3%; float: left;">
+        <h2 style="margin-top: -5px; margin-bottom:10px; font-weight: normal; color: #004B91;">
+            Quickly download all customers' reviews
+        </h2>
+        <p style="font-size: 16px; margin-top: -5px;">
+            Enter/paste a supported product URL and retrieve all comments and reviews on the
+            product review page. The retrieved comments and reviews are properly formatted and
+            bundled into a CSV file ready to be delivered.
+        </p>
+        <div style="font-size: 16px;">
+            Of course, you can choose how the output file is delivered to you:
+            <div style="margin-top: 5px;" >
+                <h4>
+                    <span style="font-weight: normal;">1.) </span> Instant download
+                </h4>
+                <span style="display: block; padding-left: 20px;">
+                    This is the default option.
+                </span>
+            </div>
+            <div style="margin-top: 5px;" >
+                <h4>
+                    <span style="font-weight: normal;">2.) </span> File sent to email address
+                </h4>
+                <span style="display: block; padding-left: 20px;">
+                    This option is automatically used when data retrieval has lasted more than
+                    five (5) minutes, even if "Instant download" (option 1.) has been selected
+                </span>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+        <br/><br/>
+        <!-- Sample URLs -->
+        <div>
+            <h2><pre style="margin-top: -20px; color: #004B91;">Run Demo with sample URLs</pre></h2>
+            <hr style="margin-top: -15px;"/>
+            <p>
+                Below are sample URLs of some supported categories. Copy and input any of them in the form
+                to 'feel' how the module works.
+            </p>
+            <table id="sampleURLs">
+                <tr>
+                    <th style="text-align:left">Category</th>
+                    <th style="text-align:left">
+                        <span style="padding-left: 10px">Product Display URL</span>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+</body>
+</html>
